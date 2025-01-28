@@ -9,13 +9,13 @@
                 "name": {
                     "type": "string"
                 },
-                "waveform": {
-                    "type": "boolean"
+                "data_type": {
+                    "type": "string"
                 }
             },
             "required": [
                 "name",
-                "waveform"
+                "data_type"
             ]
         },
         "data": {
@@ -24,20 +24,28 @@
                 "type": "object",
                 "properties": {
                     "secs": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "seconds since epoch UTC"
                     },
                     "nanos": {
                         "type": "integer"
                     },
                     "val": {
-                        "type": [
-                            "integer",
-                            "number",
-                            "array",
-                            "object",
-                            "string",
-                            "boolean"
-                        ]
+                        "type": "data_type"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string"
+                            },
+                            "EPICSmeta": {
+                                "type": "EPICSArchiverMeta"
+                            },
+                            "TangoMeta": {
+                                "type": "TangoArchiverMeta"
+                            }
+                        }
                     }
                 },
                 "required": [

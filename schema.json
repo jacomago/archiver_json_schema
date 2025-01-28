@@ -1,28 +1,55 @@
 {
-"$schema": "https://json-schema.org/draft/2020-12/schema",
-"title": "Controls System Archiver json interface schema",
-"type": "object",
-"properties": {
-    "meta": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Controls System Archiver json interface schema",
     "type": "object",
     "properties": {
-        "name": { "type": "string" },
-        "waveform": { "type": "boolean" }
-    },
-    "required": ["name", "waveform"]
-    },
-    "data": {
-    "type": "array",
-    "items": {
-        "type": "object",
-        "properties": {
-        "secs": { "type": "integer" },
-        "nanos": { "type": "integer" },
-        "val": { "type": ["integer", "number", "array", "object", "string", "boolean"] }
+        "meta": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "waveform": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name",
+                "waveform"
+            ]
         },
-        "required": ["secs", "nanos", "val"]
-    }
-    }
-},
-"required": ["meta", "data"]
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "secs": {
+                        "type": "integer"
+                    },
+                    "nanos": {
+                        "type": "integer"
+                    },
+                    "val": {
+                        "type": [
+                            "integer",
+                            "number",
+                            "array",
+                            "object",
+                            "string",
+                            "boolean"
+                        ]
+                    }
+                },
+                "required": [
+                    "secs",
+                    "nanos",
+                    "val"
+                ]
+            }
+        }
+    },
+    "required": [
+        "meta",
+        "data"
+    ]
 }
